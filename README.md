@@ -77,8 +77,8 @@ POSTGRES_PASSWORD: XXX
 are the same with these two lines in /apiserver/confg.ini
 
 ```
-user = shuyang
-password = 123
+user = XXX
+password = XXX
 ```
 
 cd to the cloned directory(where docker-compose.yml locates) and run `docker-compose up`. The api service will start (if necessary, docker-compose will automatically build the containers).
@@ -201,7 +201,7 @@ host = localhost
 user = shuyang
 password = 123
 ```
-To
+To the username and password you just created in the previous step:
 
 ```
 host = localhost
