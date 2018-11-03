@@ -13,7 +13,7 @@ The entire JSON associated with the one single tweet can be seen [here]().
 In order to do the analysis, the database structure is designed as follow:
 #### Datastructure
 The ER diagram is shown below:
-![alt text](https://drive.google.com/file/d/145_dbhMRd9zXf4mR32LRcYDhbr7mhFG3/view?usp=sharing)
+![alt text](https://s3.amazonaws.com/testbanking/openmessage.png)
 
 Although most of the Twitter metadata is dynamic, changing tweet-by-tweet. There are stil some metdata which changes slowly or does not change. ex. User's account ID, screen name, language, timezone etc.
 
@@ -34,7 +34,7 @@ twitterraw is table for the complete raw data. It is inserted to postgreSQL as B
 
 #### System Architecture
 The architecture of this appication is shown as below:
-![alt text](https://drive.google.com/file/d/1NI4NrMBfolPQDKDxrIGMhf82DDBsKCG1/view?usp=sharing)
+![alt text](https://s3.amazonaws.com/testbanking/architecture.jpg)
 
 
 
@@ -163,7 +163,7 @@ $ python main.py
 ```
 
 ## Restful API:
-[api documents]()
+[api documents](https://s3.amazonaws.com/testbanking/index.html)
 
 The design documents can be found in folder twitterapi-swagger-doc
 
