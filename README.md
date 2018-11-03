@@ -1,4 +1,4 @@
-# openmessages
+# openmessages X twitter
 
 ## Overview
 This projdect is designed to explore the role Twitter data played in some social event. An example use case will be:
@@ -34,7 +34,7 @@ twitterraw
 users_static
 
 
-twitterraw is table for the complete raw data. It is inserted to postgreSQL as BLOB(binary) data. In case there is a database problem or not enough infomation is extracted, there is still this redundant data.
+**twitterraw** is the table for storing the complete raw data. It is inserted to postgreSQL as BLOB(binary) data. In case there is a database problem or not enough infomation is extracted, there is still this redundant data.
 
 
 #### System Architecture
