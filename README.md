@@ -46,7 +46,7 @@ These instructions will get you a copy of the project up and running on your loc
 ### Prerequisites for Running on local machine
 install docker
 
-[install docker on MAC OS](https://docs.docker.com/docker-for-mac/install/)
+[install docker on MAC OS official guide](https://docs.docker.com/docker-for-mac/install/)
 
 ### run
 (for simplification, the data is initialized with already streamed data filtered with "trump")
@@ -54,6 +54,8 @@ cd to the cloned directory and run `docker-compose up`. The api service will sta
 
 check link to see all the twitter users in the database:
 [localhost:8000/v1/users](http://localhost:8000/v1/users)
+[get users Image](https://s3.amazonaws.com/testbanking/restAPI.png)
+
 
 
 ## Getting Started (without docker)
@@ -81,7 +83,7 @@ $ cd /usr/local/Cellar/kafka/0.10.2.0/libexec/bin
 $ ./kafka-topics.sh --list --zookeeper localhost:2181
 ```
 2. install postgresSQL
-[postgresSQL MAC OS Tutotial](https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb)
+[postgresSQL MAC OS Tutorial](https://www.codementor.io/engineerapart/getting-started-with-postgresql-on-mac-osx-are8jcopb)
 
 ```
 $ brew install postgresql
@@ -161,6 +163,8 @@ Then run the server
 ```
 $ python main.py
 ```
+check is running: [localhost:8000/v1/users](http://localhost:8000/v1/users)
+[get users Image](https://s3.amazonaws.com/testbanking/restAPI.png)
 
 ## Restful API:
 [api documents](https://s3.amazonaws.com/testbanking/index.html)
@@ -170,7 +174,8 @@ The design documents can be found in folder twitterapi-swagger-doc
 
 ## Future work:
 
-1. DB design: since the user_id and twitter id are getting really big, data type needs to be more efficient instead of using text/bigint
+1. DB design/Data structure: since the user_id and twitter id are getting really big, data type needs to be more efficient instead of using text/bigint
 2. kafka and zookeeper: Docker compose (Integertion with apiserver)
+3. writing Unit test
 3. restful server security, OAth 2.0
 4. Deploy to EC2,and integretion with AWS SQS
