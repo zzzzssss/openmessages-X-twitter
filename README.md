@@ -9,7 +9,7 @@ I am interested in the role Twitter data played when IBM bought red hat.
         * How many real-time photos and video were coming out on Twitter after the news came out?
         * How did the followers of IBM and redhat change during and after news came out?
 
-The entire JSON associated with the one single tweet can be seen [here]().
+The entire JSON associated with the one single tweet can be seen [here](https://github.com/zzzzssss/openmessages/blob/master/docs/twitter_json_example/twitter_raw_example.json) and [here](https://github.com/zzzzssss/openmessages/blob/master/docs/twitter_json_example/twitter_raw_example.json).
 In order to do the analysis, the database structure is designed as follow:
 #### Datastructure
 The ER diagram is shown below:
@@ -173,9 +173,8 @@ check is running: [localhost:8000/v1/users](http://localhost:8000/v1/users)
 
 ## Restful API:
 [api documents](https://s3.amazonaws.com/testbanking/index.html)
-![alt text](https://s3.amazonaws.com/testbanking/index.html)
 
-The design documents can be found in folder docs/twitterapi-swagger-doc
+The swagger.yaml file can be found in folder docs/twitterapi-swagger-doc
 
 
 ## Future work:
