@@ -192,6 +192,7 @@ The swagger.yaml file can be found in folder docs/twitterapi-swagger-doc
 
 
 Urls to test:
+```
 path: /users
 	Method: GET
 		 http://localhost:8000/v1/users/?id=3
@@ -208,14 +209,16 @@ path: /users
 				  "twitter_lang": "string",
 				  "location": "string"
 				}
+```
 
+```
 path: /twitterActivities
 	Method: GET
 		 http://localhost:8000/v1/twitterActivities
          http://localhost:8000/v1/twitterActivities/?id=3
          http://localhost:8000/twitterActivity/?hashtag=trump
 
-
+```
 
 ## Future work:
 
