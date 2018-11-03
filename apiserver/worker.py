@@ -41,7 +41,6 @@ def worker():
             try:
                 if valid(message.value):
                     dbrt = DBWrite(conn)
-                    # count += 1
                     print "writing twitter activity:" + message.value['id_str'] + " to database ..."
                     #parent 1: user_static: primary key; user_id
                     dbrt.write_user_static(message.value['user']['id_str'], message.value['user']['created_at'],
@@ -66,6 +65,8 @@ def worker():
 
 
 if __name__ == '__main__':
+    #for useing docker
     # consumer = KafkaConsumer('tweet', bootstrap_servers = ['kafka:9092'], value_deserializer = lambda m: json.loads(m.decode('utf-8')))
+    #for using local machine
     consumer = KafkaConsumer('tweet', bootstrap_servers = ['localhost:9092'], value_deserializer = lambda m: json.loads(m.decode('utf-8')))
     worker()

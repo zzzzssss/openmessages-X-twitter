@@ -50,6 +50,20 @@ install docker
 
 ### run
 (for simplification, the data is initialized with already streamed data filtered with "trump")
+
+Make sure these two lines in docker-compose.yml:
+
+```
+OSTGRES_USER: XXX
+POSTGRES_PASSWORD: XXX
+```
+are the same with these two lines in /apiserver/confg.ini
+
+```
+user = shuyang
+password = 123
+```
+
 cd to the cloned directory(where docker-compose.yml locates) and run `docker-compose up`. The api service will start (if necessary, docker-compose will automatically build the containers).
 
 check link to see all the twitter users in the database:
@@ -175,6 +189,32 @@ check is running: [localhost:8000/v1/users](http://localhost:8000/v1/users)
 [api documents](https://s3.amazonaws.com/testbanking/index.html)
 
 The swagger.yaml file can be found in folder docs/twitterapi-swagger-doc
+
+
+Urls to test:
+path: /users
+	Method: GET
+		 http://localhost:8000/v1/users/?id=3
+         http://localhost:8000/v1/users
+         http://localhost:8000/v1/users/3/activities
+    Method: PUT
+    	  header: Content-Type:application/josn
+    	  http://localhost:8000/v1/users
+    	  body:
+	    	  	{
+				  "id": 0,
+				  "username": "string",
+				  "user_id": "string",
+				  "twitter_lang": "string",
+				  "location": "string"
+				}
+
+path: /twitterActivities
+	Method: GET
+		 http://localhost:8000/v1/twitterActivities
+         http://localhost:8000/v1/twitterActivities/?id=3
+         http://localhost:8000/twitterActivity/?hashtag=trump
+
 
 
 ## Future work:

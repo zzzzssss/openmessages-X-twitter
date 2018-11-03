@@ -6,18 +6,9 @@ from db.dbconnect import DBConnect
 import json
 from datetime import datetime
 
-# http://localhost:8000/v1/users/
+# http://localhost:8000/v1/
 class SimpleRequestHandler(BaseHTTPRequestHandler):
     def do_GET(self):
-    	"""GET Method; endpoint: /users/
-         http://localhost:8000/v1/users/?id=3
-         http://localhost:8000/v1/users
-         http://localhost:8000/v1/users/3/activities
-
-         http://localhost:8000/v1/twitterActivities
-         http://localhost:8000/v1/twitterActivities/?id=3
-         http://localhost:8000/twitterActivity/?hashtag=trump
-         """
     	dbconn = DBConnect()
     	conn = dbconn.getDB()
     	dbrd = DBRead(conn)
@@ -26,8 +17,6 @@ class SimpleRequestHandler(BaseHTTPRequestHandler):
         queryDict = urlparse.parse_qs(strmp.query)
         print strmp.path
         print queryDict
-
-        print strmp.path.split('/')
 
         result = {}
         # only suport v1 now
