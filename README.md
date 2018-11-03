@@ -65,7 +65,7 @@ consumer_key = XXXXXXXXXXXXX
 consumer_secret = XXXXXXXXXXXXX
 ```
 
-### run
+### Run
 (for simplification, the data is initialized with already streamed data filtered with "trump")
 
 Make sure these two lines in docker-compose.yml:
