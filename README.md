@@ -19,13 +19,18 @@ Although most of the Twitter metadata is dynamic, changing tweet-by-tweet. There
 
 So I choose to store the dynamic(info needed to be tracked over time, tweet-by-tweet) and static data(does not change) into different tables as shown in the ER diagram.
 
-*dynamic:*
+**dynamic:**
+
 activities
+
 users_dynamic
+
 hashtag
+
 twitterraw
 
-*static:*
+**static:**
+
 users_static
 
 
@@ -44,9 +49,21 @@ These instructions will get you a copy of the project up and running on your loc
 
 
 ### Prerequisites for Running on local machine
-install docker
+1. install docker
 
 [install docker on MAC OS official guide](https://docs.docker.com/docker-for-mac/install/)
+
+2. Register and Generate twitter api key: [https://apps.twitter.com/](https://apps.twitter.com/)
+
+put **access_token**, **access_token_secret**, **consumer_key**, **consumer_secret**, in `apiserver/config.ini` under `tweepyapi` session:
+
+```
+[tweepyapi]
+access_token = XXXXXXXXXXXXX
+access_token_secret = XXXXXXXXXXX
+consumer_key = XXXXXXXXXXXXX
+consumer_secret = XXXXXXXXXXXXX
+```
 
 ### run
 (for simplification, the data is initialized with already streamed data filtered with "trump")
@@ -151,6 +168,20 @@ $ python worker.py
 ```
 
 3. run streaming server
+
+Register and Generate twitter api key: [https://apps.twitter.com/](https://apps.twitter.com/)
+
+put **access_token**, **access_token_secret**, **consumer_key**, **consumer_secret**, in `apiserver/config.ini` under `tweepyapi` session:
+
+```
+[tweepyapi]
+access_token = XXXXXXXXXXXXX
+access_token_secret = XXXXXXXXXXX
+consumer_key = XXXXXXXXXXXXX
+consumer_secret = XXXXXXXXXXXXX
+```
+
+Run:
 
 ```
 $ python streaming.py [topic]
