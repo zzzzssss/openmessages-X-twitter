@@ -1,0 +1,176 @@
+swagger: "2.0"
+info:
+  description: " This is the API to get twitter data and user information."
+  version: "1.0.0"
+  title: "Twitter X OpenMessage"
+  contact:
+    email: "shuyangzh@gmail.com"
+host: "127.0.0.0:8000"
+basePath: "/v1"
+tags:
+- name: "user"
+  description: "Operations about Twitter Users's"
+- name: "twitter activity"
+  description: "Twitter contents"
+schemes:
+- "http"
+paths:
+  /users:
+    get:
+      tags:
+      - "user"
+      summary: "Get both static and dynamic user info by id"
+      description: ""
+      parameters:
+        - name: "id"
+          in: "query"
+          description: "id is in range 1-44, use 3 for testing "
+          required: false
+          type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Userfull"
+        400:
+          description: "Invalid id supplied"
+        404:
+          description: "User not found"
+    post:
+      tags:
+      - "user"
+      summary: "Add a new user to users_statics"
+      description: ""
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "User object that needs to be added to the store"
+        required: true
+        schema:
+          $ref: "#/definitions/UserStatic"
+      responses:
+        404:
+          description: "Not Found"
+        201:
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/UserStatic"
+
+  /users/{id}/activities:
+    get:
+      tags:
+      - "user"
+      summary: "Get this user's posted twitters"
+      description: ""
+      produces:
+      - "application/json"
+      parameters:
+        - name: "id"
+          in: "path"
+          description: "id is in range 1-44, use 3 for testing "
+          required: true
+          type: "integer"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Activitiesfull"
+        400:
+          description: "Invalid id supplied"
+        404:
+          description: "User not found"
+  /twitterActivities:
+     get:
+      tags:
+      - "twitter activity"
+      summary: "Get all the twitters info including hashtags"
+      description: ""
+      parameters:
+        - name: "id"
+          in: "query"
+          description: "twitter activity id in activities table"
+          required: false
+          type: "integer"
+        - name: "hashtag"
+          in: "query"
+          description: "hashtag of the twitter"
+          required: false
+          type: "integer"
+      produces:
+      - "application/json"
+      responses:
+        200:
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Activitiesfull"
+        400:
+          description: "Invalid id supplied"
+        404:
+          description: "User not found"
+  
+definitions:
+  UserStatic:
+    type: "object"
+    properties:
+      id:
+        type: "integer"
+        format: "int64"
+      username:
+        type: "string"
+      user_id:
+        type: "string"
+      twitter_lang:
+        type: "string"
+      location:
+        type: "string"
+  Userfull:
+    type: "object"
+    properties:
+      activity_id:
+        type: "string"
+      created_at:
+        type: "string"
+      followers_count:
+        type: "string"
+      friends_count:
+        type: "string"
+      id:
+        type: "integer"
+      location:
+        type: "string"
+      screen_name:
+        type: "string"
+      statuses_count:
+        type: "string"
+      twitter_lang:
+        type: "string"
+      user_id:
+        type: "string"
+  Activitiesfull:
+    type: "object"
+    properties:
+      activity_id:
+        type: "string"
+      created_at:
+        type: "string"
+      body:
+        type: "string"
+      hash_tags:
+        type: "string"
+      id:
+        type: "integer"
+      urls:
+        type: "string"
+      user_id:
+        type: "string"
+externalDocs:
+  description: "Find out more about Swagger"
+  url: "http://swagger.io"
