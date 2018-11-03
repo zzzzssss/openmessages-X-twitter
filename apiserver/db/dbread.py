@@ -96,7 +96,7 @@ class DBRead:
 
 
 	def read_activities_by_id(self, id):
-		""" read data from a activities Table """
+		""" read data from a activities and hash_tags Table """
 		try:
 			cur = self.conn.cursor()
 			# edge case check
@@ -131,7 +131,7 @@ class DBRead:
 			print(error)
 
 	def read_activities_by_hashtag(self, hashtag):
-		""" read data from activities Table """
+		""" read data from activities and hash_tags Table """
 		try:
 			cur = self.conn.cursor()
 			# edge case check
@@ -164,6 +164,7 @@ class DBRead:
 			print(error)
 
 	def read_userID_activities(self, id):
+		""" read data from activities and users_static Table """
 		try:
 			cur = self.conn.cursor()
 			# edge case check
@@ -183,22 +184,3 @@ class DBRead:
 			cur.close()
 		except (Exception, psycopg2.DatabaseError) as error:
 			print(error)
-
-
-	# def read_raw(self, activity_id, path_to_dir):
-	#     """ read binary data from a twitterraw Table """
-	#     try:
-	#         cur = self.conn.cursor()
-	#         cur.execute(""" SELECT activity_id, raw_json FROM twitterraw""")
-
-	#         blob = cur.fetchone()
-	#         #write to file named as: %activity_id%.json in path_to_dir
-	#         open(path_to_dir + blob[0] + '.json', 'wb').write(blob[1])
-	#         # close the communication with the PostgresQL database
-	#         cur.close()
-	#     except (Exception, psycopg2.DatabaseError) as error:
-	#         print(error)
-
-
-
-

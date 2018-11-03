@@ -50,7 +50,7 @@ install docker
 
 ### run
 (for simplification, the data is initialized with already streamed data filtered with "trump")
-cd to the cloned directory and run `docker-compose up`. The api service will start (if necessary, docker-compose will automatically build the containers).
+cd to the cloned directory(where docker-compose.yml locates) and run `docker-compose up`. The api service will start (if necessary, docker-compose will automatically build the containers).
 
 check link to see all the twitter users in the database:
 [localhost:8000/v1/users](http://localhost:8000/v1/users)
@@ -114,6 +114,11 @@ $ psql postgres -U *username* #login with the username just created #Enter passw
 $ postgres=# CREATE DATABASE twitter;
 $ postgres=# GRANT ALL PRIVILEGES ON DATABASE twitter TO *username*; postgres=> \list
 $ postgres=# \connect twitter
+```
+Inside postgres, copy schema in db/Twitterschema.sql to create tables.
+
+check Tables are created and quit:
+```
 $ postgres=# \dt
 $ postgres=# \q # quits
 ```
@@ -170,7 +175,7 @@ check is running: [localhost:8000/v1/users](http://localhost:8000/v1/users)
 [api documents](https://s3.amazonaws.com/testbanking/index.html)
 ![alt text](https://s3.amazonaws.com/testbanking/index.html)
 
-The design documents can be found in folder twitterapi-swagger-doc
+The design documents can be found in folder docs/twitterapi-swagger-doc
 
 
 ## Future work:
