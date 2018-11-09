@@ -247,7 +247,7 @@ path: /twitterActivities
 	Method: GET
 		 http://localhost:8000/v1/twitterActivities
          http://localhost:8000/v1/twitterActivities/?id=3
-         http://localhost:8000/twitterActivity/?hashtag=trump
+         http://localhost:8000/twitterActivities/?hashtag=trump
 
 ```
 
